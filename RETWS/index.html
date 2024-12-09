@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Retenção de Clientes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="retention-calculation/history.css">
+</head>
+<body>
+<div class="container">
+    <div style="text-align: left; font-size: 12px; font-weight: bold; margin-top: 10px;">
+        Desenvolvido por Wesley Oliveira
+    </div>
+    <h1>Painel de Retenção de Clientes</h1>
+    <div class="tabs">
+        <button class="tab" onclick="openTab('home')">Registro</button>
+        <button class="tab" onclick="openTab('history')">Histórico</button>
+    </div>
+<div id="home" class="tabcontent">
+    <h2>Registro</h2>
+    <form id="retention-form">
+        <div class="form-group">
+            <label for="client-name">Nome do Cliente:</label>
+            <input type="text" id="client-name" required>
+        </div>
+        <div class="form-group">
+            <label for="contract">Contrato (OPCIONAL):</label>
+            <input type="text" id="contract">
+        </div>
+        <div class="form-group">
+            <label for="status">Situação</label>
+            <select id="status" required>
+                <option value="retido">Retido</option>
+                <option value="nao-retido">Não Retido</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="reason">Motivo do Cancelamento:</label>
+            <select id="reason" required>
+                <option value="insatisfacao">Insatisfação</option>
+                <option value="atraso-visita-tecnica">Atraso na Visita Técnica</option>
+                <option value="concorrencia">Concorrência</option>
+                <option value="outro">Outros</option>
+                <option value="desconto">Desconto</option>
+                <option value="reclamacao">Reclamação</option>
+                <option value="acompanhar">Acompanhar</option>
+            </select>
+        </div>
+        <button type="submit">Registrar</button>
+    </form>
+</div>
+<div id="history" class="tabcontent">
+    <h2>Histórico de Clientes</h2>
+    <label for="desired-retention">Taxa de Retenção Desejada (%):</label>
+    <input type="number" id="desired-retention" name="desired-retention" min="0" max="100">
+    <label for="date-range">Selecione o Período:</label>
+    <input type="date" id="start-date" name="start-date">
+    <input type="date" id="end-date" name="end-date">
+    <button onclick="calculateRetention()">Calcular Retenção</button>&nbsp;
+    <button onclick="location.href='index.html'">Voltar ao Início</button>
+    <div id="retention-percentage">Taxa de Retenção:</div>
+    <table id="client-history">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Contrato</th>
+                <th>Situação</th>
+                <th>Motivos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Client data will be populated here -->
+        </tbody>
+    </table>
+</div>
+</div>
+<script src="script.js"></script>
+<script src="retention-calculation/history.js"></script>
+</body>
+</html>

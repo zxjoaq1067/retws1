@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Clientes</title>
+    <link rel="stylesheet" href="history.css">
+</head>
+<body>
+<div class="container">
+    <div style="text-align: left; font-size: 12px; font-weight: bold; margin-top: 10px;">
+        Desenvolvido por Wesley Oliveira
+    </div>
+<h2>Histórico de Clientes</h2>
+<button onclick="location.href='index.html'">Voltar ao Início</button>
+    <label for="date-range">Selecione o Período:</label>
+    <input type="date" id="start-date" name="start-date">
+    <input type="date" id="end-date" name="end-date">
+    <label for="desired-retention">Taxa de Retenção Desejada (%):</label>
+    <input type="number" id="desired-retention" name="desired-retention" min="0" max="100">
+    <button onclick="calculateRetention()">Calcular Retenção</button>
+    <table id="client-history">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Contrato</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Client data will be populated here -->
+        </tbody>
+    </table>
+    <div id="retention-percentage"></div>
+</div>
+    <script src="history.js"></script>
+</body>
+</html>
